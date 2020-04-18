@@ -22,4 +22,37 @@ describe('The findUserByEmail function', () => {
 
     assert.equal(res.message, 'User found successfully.');
   });
+
+  it('rejects with error if user with email was not found', () => {
+    return findUserByEmail('asdasd@asdasd.com').then(
+      () => {
+        assert.fail('Expected findUserByEmail function to reject.');
+      },
+      (error) => {
+        assert.equal(
+          error.message,
+          'User with email: asdasd@asdasd.com was not found.'
+        );
+      }
+    );
+  });
+});
+
+describe('The findUserById function', () => {
+  it('should find a user by id', async () => {
+    const res = await findUserById(1);
+
+    assert.equal(res.message, 'User found successfully.');
+  });
+
+  it('rejects with error if user is not found by id', () => {
+    return findUserById(90).then(
+      () => {
+        assert.fail('Expected findUserById function to throw');
+      },
+      (error) => {
+        assert.equal(error.message, 'User with id: 90 was not found.');
+      }
+    );
+  });
 });
