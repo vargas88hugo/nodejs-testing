@@ -4,21 +4,8 @@
 
 import server from '@server/app'
 import User from '@models/User'
-import supertest from 'supertest'
 import authMiddleware from '@middleware/auth'
-
-const app = () => supertest(server)
-
-class Response {
-    status(status) {
-        this.status = status
-        return this
-    }
-
-    json(data) {
-        return data
-    }
-}
+import Response from '@tests/utils/response'
 
 const user = {
     name: 'Test User',

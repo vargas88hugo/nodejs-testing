@@ -1,7 +1,8 @@
 module.exports = {
     testPathIgnorePatterns: [
         '<rootDir>/node_modules/',
-        '<rootDir>/__tests__/setup/'
+        '<rootDir>/__tests__/setup/',
+        '/utils/'
     ],
     snapshotSerializers: ['enzyme-to-json/serializer'],
     setupFiles: ['<rootDir>/__tests__/setup/client.js'],

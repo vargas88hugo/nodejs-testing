@@ -4,12 +4,9 @@
 
 import server from '@server/app'
 import User from '@models/User'
-import supertest from 'supertest'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import config from '@config'
-
-const app = () => supertest(server)
 
 const user = {
     name: 'Test User',
